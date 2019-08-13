@@ -63,6 +63,8 @@ public abstract class BaseView extends View {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public BaseView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        initCoordinate(context);
+        init(context);
     }
 
 
@@ -122,7 +124,7 @@ public abstract class BaseView extends View {
             //标注宽度(每两个画一个)
             if (curWidth % (mGridWidth * 2) == 0){
                 canvas.drawText(curWidth + "",curWidth,mTextSize*1.5f,mTextPaint);
-                canvas.drawText(-curWidth + "",-curWidth,mTextSize * 1.5f,mTextPaint);
+                canvas.drawText(-curWidth+  "",-curWidth,mTextSize * 1.5f,mTextPaint);
             }
 
             curWidth += mGridWidth;
@@ -161,7 +163,7 @@ public abstract class BaseView extends View {
      */
     protected int spToPx(float spValue){
         final float fontScale = Resources.getSystem().getDisplayMetrics().scaledDensity;
-        return (int)(spValue * fontScale + 0.5f);
+        return (int) (spValue * fontScale + 0.5f);
     }
 
     /**
